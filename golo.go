@@ -1,3 +1,4 @@
+// A small wrapper around liblo (OSC) for (de)serializing OSC packets
 package golo
 
 // #cgo pkg-config: liblo
@@ -11,11 +12,25 @@ import (
 	"unsafe"
 )
 
+var (
+	ErrUnknown = errors.New("Unknown type")
+)
+
+// A message represents an OSC message.
+// A parameter may be one of the following types:
+//
+// int64, int32, float64, float32
+//
+// OSC supports more types than this,
+// but the code has not been ported yet.
 type Message struct {
 	Path   string
 	Params []interface{}
 }
 
+// Takes a serialized OSC packet and deserializes it into a
+// message. Parameters with an unsupported type will
+// be deserialized as ErrUnknown.
 func Deserialize(data []byte) (*Message, error) {
 	cdata := unsafe.Pointer(&data[0])
 	cdatalen := C.size_t(len(data))
@@ -50,5 +65,5 @@ func extractArgument(msg C.lo_message, idx int) interface{} {
 	case 'd':
 		return float64(C.msg_extract_float64(argv, C.int(idx)))
 	}
-	return errors.New("Unknown type")
+	return ErrUnknown
 }

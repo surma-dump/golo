@@ -9,11 +9,11 @@ func TestIdentity(t *testing.T) {
 		Path: "/osc/path",
 		Params: make([]interface{}, 5),
 	}
-	in_msg.Params[0] = float32(1.0)
+	in_msg.Params[0] = float32(0.0)
 	in_msg.Params[1] = float64(1.0)
-	in_msg.Params[2] = int32(1.0)
-	in_msg.Params[3] = int64(1.0)
-	in_msg.Params[4] = "5"
+	in_msg.Params[2] = int32(2.0)
+	in_msg.Params[3] = int64(3.0)
+	in_msg.Params[4] = "4"
 
 	data, e := Serialize(in_msg)
 	if e != nil {

@@ -30,6 +30,10 @@ type Message struct {
 	Params []interface{}
 }
 
+func (m *Message) String() string {
+	return fmt.Sprintf("%v", *m)
+}
+
 // Takes a serialized OSC packet and deserializes it into a
 // message. Parameters with an unsupported type will
 // be deserialized as ErrUnknown.

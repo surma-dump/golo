@@ -20,3 +20,7 @@ double msg_extract_float64(lo_arg **argv, int pos) {
 	return argv[pos]->f64;
 }
 
+char* msg_extract_string(lo_arg **argv, int pos) {
+	return &argv[pos]->s;
+}
+

@@ -10,8 +10,8 @@ import "C"
 
 import (
 	"errors"
-	"unsafe"
 	"fmt"
+	"unsafe"
 )
 
 var (

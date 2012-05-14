@@ -5,8 +5,8 @@ import (
 )
 
 func TestIdentity(t *testing.T) {
-	in_msg := &Message {
-		Path: "/osc/path",
+	in_msg := &Message{
+		Path:   "/osc/path",
 		Params: make([]interface{}, 5),
 	}
 	in_msg.Params[0] = float32(0.0)

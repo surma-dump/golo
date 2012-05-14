@@ -35,6 +35,6 @@ func main() {
 		if e != nil {
 			log.Printf("Received invalid package: %s", e)
 		}
-		log.Printf("Received: %v", msg)
+		log.Printf("Received: %s", msg)
 	}
 }

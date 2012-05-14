@@ -1,4 +1,4 @@
-`golo` is a simple, very much incomplete Go-wrapper around [`liblo`](http://liblo.sourceforge.net/).
+`golo` is a simple, very much incomplete Go-wrapper around [`liblo`](http://liblo.sourceforge.net/). Release under MIT/X license.
 
 Only a small subset of types is supported. Right now those are
 
